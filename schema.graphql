@@ -1,0 +1,23 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  listArticle: ArticlesResponse
+}
+
+type Mutation {
+  createArticle(title: String, content: String): ArticlesResponse
+}
+
+type Article {
+  id: Int
+  title: String
+  content: String
+}
+
+type ArticlesResponse {
+  errorCode: String
+  articles: [Article]
+}
