@@ -24,4 +24,15 @@ custom:
         config:
           functionName: blog-app-resolver
           lambdaFunctionArn: "arn:aws:lambda:ap-northeast-1:${env:AWS_ACCOUNT_ID}:function:blog-app-resolver"
-          serviceRoleArn: "arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/service-role/appsync-ds-lam-xxxxxxxxxxxxx
+          serviceRoleArn: "arn:aws:iam:${env:AWS_ACCOUNT_ID}:role/service-role/appsync-ds-lam-xxxxxxxxxxxxx"
+    mappingTemplates:
+      - dataSources: BlogAppResolber
+        type: Query # Query, Mutation, Subscription
+        field: listArticle # Schema内のフィールド名
+        request: "query-list-blog-request.vtl"
+        response: "common-response.vtl"
+      - dataSources: BlogAppResolber
+        type: Mutation
+        field: createArticle
+        request: "mutation-create-blog-request.vtl"
+        response: "common-response.vtl"
