@@ -18,3 +18,10 @@ custom:
       defaultAction: ALLOW
       userPoolId: ap-northeast-1_XXXXX
     schema: schema.graphql
+    dataSources:
+      - type: AWS_LAMBDA
+        name: BlogAppResolver
+        config:
+          functionName: blog-app-resolver
+          lambdaFunctionArn: "arn:aws:lambda:ap-northeast-1:${env:AWS_ACCOUNT_ID}:function:blog-app-resolver"
+          serviceRoleArn: "arn:aws:iam::${env:AWS_ACCOUNT_ID}:role/service-role/appsync-ds-lam-xxxxxxxxxxxxx
